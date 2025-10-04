@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000";
+const API_URL = "https://quqyqfinalfinal.onrender.com";
 let token = localStorage.getItem("token");
 
 // ... (other existing functions like fetchCourses, fetchLessons, etc.)
@@ -229,4 +229,5 @@ async function goToPreviousLesson() {
     if (lessonId > 1) {
         window.location.href = `/static/lesson.html?id=${lessonId - 1}&course_id=${courseId}`;
     }
+
 }
