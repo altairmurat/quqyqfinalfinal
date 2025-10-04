@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <img src="/static/images/logo.png" alt="E-Learning Logo" class="logo">
+        <h1>E-Learning Platform</h1>
+    </header>
+    <div class="container">
+        <div class="main-content">
+            <h2>Login</h2>
+            <input type="text" id="login-username" placeholder="Username" style="margin-bottom: 10px;">
+            <input type="password" id="login-password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p style="margin-top: 10px;">Don't have an account? <a href="/static/register.html" style="color: #0d6efd;">Create an Account</a></p>
+        </div>
+    </div>
+    <script src="/static/scripts.js"></script>
+    <script>
+        // Ensure login page doesn't show unnecessary elements
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.left-nav')?.remove(); // Remove left nav if present
+            document.querySelector('.main-content')?.classList.remove('show-content'); // Reset show state
+        });
+    </script>
+</body>
+</html>

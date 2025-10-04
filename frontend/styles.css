@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f7f6; /* Light grayish-green background */
+    color: #2e3b35; /* Dark grayish-green text */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #4a9c7e; /* Muted teal header */
+    color: #ffffff; /* White text for contrast */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    max-width: 1600px; /* Wider container as requested */
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #e0e8e5; /* Soft mint green container */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+}
+
+.left-nav {
+    width: 25%;
+    background-color: #e0e8e5; /* Soft mint green */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.main-content-courses {
+    width: 75%;
+    background-color: #e0e8e5; /* Soft mint green */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-left: 175px;
+    margin-right: 175px;
+}
+
+.main-content {
+    width: 75%;
+    background-color: #e0e8e5; /* Soft mint green */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.left-nav h3, .main-content h2, .main-content h3 {
+    color: #4a9c7e; /* Muted teal for headings */
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #4a9c7e; /* Muted teal buttons */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3d8a6e; /* Darker teal on hover */
+}
+
+a {
+    color: #4a9c7e; /* Muted teal links */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #3d8a6e; /* Darker teal on hover */
+    text-decoration: underline;
+}
+
+#media video, #media embed {
+    width: 100%;
+    max-height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#transcript {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #2e3b35;
+    margin-bottom: 20px;
+}
+
+#transcript b {
+    color: #4a9c7e; /* Muted teal for bold text */
+    font-weight: 600;
+}
+
+textarea, input {
+    background-color: #ffffff; /* White input fields */
+    border: 1px solid #4a9c7e;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.citation {
+    text-align: center;
+    color: #2e3b35;
+    font-style: italic;
+    margin-top: 20px;
+    transform: translateX(0);
+    width: 90%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+/* ... (keep all existing styles unchanged until #courses-list) ... */
+
+#courses-list {
+    display: flex; /* Change from grid to flex for vertical stacking */
+    flex-direction: column; /* Ensure items stack vertically */
+    gap: 20px; /* Space between courses */
+    margin: 20px 0;
+}
+
+/* Ensure course-card adapts to vertical layout */
+.course-card {
+    background-color: #e0e8e5;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px; /* Additional spacing for visual separation */
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.course-card a {
+    color: #2e3b35;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: block;
+}
+
+/* Remove the media query grid adjustment since it's no longer a grid */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 15px;
+    }
+    .left-nav, .main-content {
+        width: 100%;
+    }
+    .citation {
+        position: relative;
+        margin-top: 20px;
+        transform: translateX(0);
+        width: 90%;
+    }
+}
+
+/* ... (rest of the CSS remains unchanged) ... */
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        h4 {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            font-weight: bold;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .diagram-box {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            min-width: 100px;
+        }
+        .diagram-arrow {
+            font-size: 24px;
+            margin: 0 10px;
+        }
+        .tree-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .tree-top {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .tree-branches {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .tree-branch {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0 20px;
+        }
+        .tree-line {
+            width: 2px;
+            height: 20px;
+            background-color: #333;
+            margin: 0 auto;
+        }
+        .horizontal-line {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+            height: 2px;
+            background-color: #333;
+            position: relative;
+            top: -10px;
+        }
+
+        .task {
+            margin-bottom: 40px;
+        }
+        .kazakh {
+            margin-bottom: 20px;
+        }
+        .fill-blank {
+            border: none;
+            border-bottom: 1px dotted black;
+            width: 150px;
+            text-align: left;
+            font-size: 14px;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .venn-container {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            margin: 20px auto;
+        }
+        .circle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .left-circle {
+            left: 0;
+            background-color: #008000;
+            color: white;
+        }
+        .right-circle {
+            left: 150px;
+            background-color: #90ee90;
+            color: black;
+        }
+        button {
+            margin-top: 10px;
+        }
+        #result1 {
+            margin-top: 10px;
+        }

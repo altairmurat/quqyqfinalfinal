@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lesson</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <img src="/static/images/logo.png" alt="E-Learning Logo" class="logo">
+        <h1>E-Learning Platform</h1>
+    </header>
+    <div class="container">
+        <div class="left-nav">
+            <h3>Lessons</h3>
+            <div id="lessons-list"></div>
+            <button onclick="window.location.href='/static/courses.html'">Back to Courses</button>
+        </div>
+    </div>
+    <script src="/static/scripts.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const lessonId = urlParams.get('id');
+        const courseId = urlParams.get('course_id');
+        if (lessonId) {
+            fetchLesson(lessonId).then(() => {
+                document.querySelector('.container').classList.add('show-content');
+                document.getElementById('submit-answer-btn').disabled = false;
+            });
+        } else {
+            fetchLessons(courseId);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('lessons-list').addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    e.preventDefault();
+                    const lessonId = e.target.getAttribute('href').split('id=')[1].split('&')[0];
+                    window.location.href = `/static/lesson.html?id=${lessonId}&course_id=${courseId}`;
+                }
+            });
+        })
+    </script>
+</body>
+</html>

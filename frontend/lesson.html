@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lesson</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        .venn-container {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            margin: 20px auto;
+        }
+        .circle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .left-circle {
+            left: 0;
+            background-color: #008000;
+            color: white;
+        }
+        .right-circle {
+            left: 150px;
+            background-color: #90ee90;
+            color: black;
+        }
+        .main-content {
+            display: none; /* Hide by default */
+        }
+        .container.show-content .main-content {
+            display: block; /* Show when .show-content class is added */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/static/images/logo.png" alt="E-Learning Logo" class="logo">
+        <h1>E-Learning Platform</h1>
+    </header>
+    <div class="container">
+        <div class="left-nav">
+            <h3>Lessons</h3>
+            <div id="lessons-list"></div>
+            <button onclick="window.location.href='/static/lessons.html?course_id=1';">Back to Courses</button>
+        </div>
+
+        <div class="main-content">
+            <h2 id="lesson-title"></h2>
+            <div id="media"></div>
+
+            <br>
+            <p>Сабақ бойынша презентация.</p>
+            <div id="pdf_lesson"></div>
+            <br>
+
+            <p id="transcript"></p>
+            <div id="media1"></div>
+            <br>
+
+            <!-- Button to toggle second PDF -->
+            <button id="toggle-pdf-btn" onclick="toggleSecondaryPDF()">Дұрыс жауаптарын көру</button>
+            <!-- Container for the second PDF, initially hidden -->
+             <br>
+            <div id="pdf_answers" style="display: none; margin-top: 15px;"></div>
+            <br>
+
+            <textarea id="answer-input" placeholder="Конспект бойынша, тапсырма бойынша сұрақтарыңыз болса немесе тапсырма жауаптарын тексергіңіз келсе, ИИ-ассистентке сұрақ қойып, көмек сұрасаңыздар болады."></textarea>
+            <button id="submit-answer-btn" onclick="submitAnswer()">Сұрақ қою батырмасы</button>
+            <br>
+            <p id="answer-response"></p>
+        
+            <br><br>
+            <button onclick="goToPreviousLesson()">Алдыңғы сабақ</button>
+            <button onclick="goToNextLesson()">Келесі сабақ</button>
+        </div>
+    </div>
+    <script src="/static/scripts.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const lessonId = urlParams.get('id');
+        const courseId = urlParams.get('course_id');
+        if (lessonId) {
+            fetchLesson(lessonId).then(() => {
+                document.querySelector('.container').classList.add('show-content');
+                document.getElementById('submit-answer-btn') = block;
+            });
+        } else {
+            fetchLessons(courseId);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('lessons-list').addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    e.preventDefault();
+                    const lessonId = e.target.getAttribute('href').split('id=')[1].split('&')[0];
+                    window.location.href = `/static/lesson.html?id=${lessonId}&course_id=${courseId}`;
+                }
+            });
+        });
+
+        function checkTask1() {
+            const answers = [
+                "Әлеуметтік нормалар",
+                "Мораль",
+                "Мемлекет",
+                "Құқық",
+                "Заң",
+                "Нормативтік актілер"
+            ];
+            let allCorrect = true;
+
+            for (let i = 1; i <= 6; i++) {
+                const input = document.getElementById(`task1_${i}`);
+                if (input.value.trim() === answers[i-1]) {
+                    input.classList.add('correct');
+                    input.classList.remove('incorrect');
+                } else {
+                    input.classList.add('incorrect');
+                    input.classList.remove('correct');
+                    allCorrect = false;
+                }
+            }
+
+            const result = document.getElementById('result1');
+            if (allCorrect) {
+                result.innerText = "Барлығы дұрыс!";
+                result.style.color = 'green';
+            } else {
+                result.innerText = "Қателер бар. Қайта көріңіз.";
+                result.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>

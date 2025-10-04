@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Courses</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <img src="/static/images/logo.png" alt="E-Learning Logo" class="logo">
+        <h1>E-Learning Platform</h1>
+    </header>
+    <div class="container">
+        <div class="main-content-courses">
+            <h1 style="text-align: center; margin-bottom: 20px;">Құқық Негіздері пәніне дайындық</h1>
+            <div id="courses-list"></div>
+            <h4 class="citation">your knowledge your treasure</h4>
+        </div>
+    </div>
+    <script src="/static/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchCourses();
+        });
+    </script>
+</body>
+</html>

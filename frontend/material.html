@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Material</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        .main-content {
+            display: none; /* Hide by default */
+        }
+        .container.show-content .main-content {
+            display: block; /* Show when .show-content class is added */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-nav">
+            <h3>Materials</h3>
+            <div id="materials-list"></div>
+            <button onclick="window.location.href='/static/courses.html'">Back to Courses</button>
+        </div>
+        <div class="main-content">
+            <div id="media"></div>
+            <h2 id="material-title"></h2>
+        </div>
+    </div>
+    <script src="/static/scripts.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseId = urlParams.get('course_id');
+        fetchMaterials(courseId); // Load materials list
+
+        // Add click event to materials
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('materials-list').addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    e.preventDefault();
+                    const materialId = e.target.getAttribute('href').split('id=')[1].split('&')[0];
+                    fetchMaterial(materialId).then(() => {
+                        document.querySelector('.container').classList.add('show-content');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
