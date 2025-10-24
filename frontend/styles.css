@@ -65,6 +65,25 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+.container1 {
+    display: flex;
+    gap: 30px;
+    max-width: 1600px; /* Wider container as requested */
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #e0e8e5; /* Soft mint green container */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+}
+
+.main1-content1 {
+    width: 75%;
+    background-color: #e0e8e5; /* Soft mint green */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .left-nav h3, .main-content h2, .main-content h3 {
     color: #4a9c7e; /* Muted teal for headings */
     margin-bottom: 15px;
@@ -176,6 +195,11 @@ textarea, input {
 /* Remove the media query grid adjustment since it's no longer a grid */
 @media (max-width: 768px) {
     .container {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 15px;
+    }
+    .container1 {
         flex-direction: column;
         max-width: 100%;
         padding: 15px;
