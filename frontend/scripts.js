@@ -53,15 +53,17 @@ async function fetchCourses() {
             page = "material";
         } else if (course.id === 3) {
             page = "book";
+        } else if (course.id === 4) {
+            page = "gptweb";
         } else {
-            page = "book"; // Default fallback
+            page = "gptweb";
         }
         return `
-            <div class="course-card">
-                <a href="/static/${page}.html?course_id=${course.id}">
-                    ${course.name}
-                </a>
-            </div>
+        <div class="course-card">
+            <a href="/static/${page}.html?course_id=${course.id}">
+                ${course.name}
+            </a>
+        </div>
         `;
     }).join("");
 }
@@ -154,13 +156,27 @@ async function fetchMaterials(courseId) {
     `).join("");
 }
 
+
 async function fetchMaterial(materialId) {
-    const response = await fetch(`${API_URL}/materials/${materialId}`, {
-        headers: { Authorization: `Bearer ${token}` }
-    });
-    const material = await response.json();
-    document.getElementById("material-title").textContent = material.title;
-    document.getElementById("media").innerHTML = `<embed src="${material.pdf_url}" width="100%" height="400px">`;
+    try {
+        const response = await fetch(`${API_URL}/materials/${materialId}`, {
+            headers: { Authorization: `Bearer ${token}` }
+        });
+        if (!response.ok) {
+            throw new Error(`Failed to fetch lesson: ${response.status} ${response.statusText}`);
+        }
+        const material = await response.json();
+        document.getElementById("material-title").textContent = material.title;
+        const pdf_url = document.getElementById("media");
+        const pdf_answer = document.getElementById("pdf_answer");
+        if (material.pdf_url) {
+            pdf_url.innerHTML = `<embed src="${material.pdf_url}" width="100%" height="200px" style="border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);">`;
+        }
+        return material;
+    } catch (error) {
+        console.error(error);
+        alert(`Error loading lesson: ${error.message}`);
+    }
 }
 
 async function fetchBooks(courseId) {
@@ -214,6 +230,28 @@ async function submitAnswer() {
     }
 }
 
+async function fetchGptAnswer() {
+    const lessonId = 1;
+    const content = document.getElementById("answerinput").value;
+    try {
+        const response = await fetch(`${API_URL}/lessons/${lessonId}/answer`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ content })
+        });
+        if (!response.ok) {
+            throw new Error(`Failed to submit answer: ${response.status} ${response.statusText}`);
+        }
+        const data = await response.json();
+        document.getElementById("answerresponse").textContent = data.response;
+    } catch (error) {
+        console.error(error);
+        alert(`Error submitting answer: ${error.message}`);
+    }
+}
+
 async function goToNextLesson() {
     // Fetch next lesson ID (assumes ordered IDs for simplicity)
     const urlParams = new URLSearchParams(window.location.search);
@@ -229,5 +267,4 @@ async function goToPreviousLesson() {
     if (lessonId > 1) {
         window.location.href = `/static/lesson.html?id=${lessonId - 1}&course_id=${courseId}`;
     }
-
 }
