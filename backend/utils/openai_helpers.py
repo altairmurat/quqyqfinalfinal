@@ -6,7 +6,7 @@ from config import client
 logger = logging.getLogger(__name__)
 
 async def chat_helper(message: Dict, model: str = "gpt-4",
-                      system_configuration: str = "Сен тек қазақша жауап беретін Қазақстан Республикасының барлық құқық заң жинағын білетін Құқық пәні бойынша көмектесетін оқушылардың ассистентісің",
+                      system_configuration: str = "Сен тек қазақша НЕМЕСЕ/ЖӘНЕ орысша жауап беретін Қазақстан Республикасының барлық құқық заң жинағын білетін Құқық пәні бойынша көмектесетін оқушылардың ассистентісің",
                       message_history: List[Dict] = []):
     messages = [{"role": "system", "content": system_configuration}] + message_history + [message]
     logger.debug(f"chat_helper - Sending messages: {messages}")
@@ -27,3 +27,4 @@ async def chat_helper(message: Dict, model: str = "gpt-4",
         logger.error(f"chat_helper - Error: {e}")
 
         raise HTTPException(status_code=500, detail=str(e))
+
