@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-content" style="margin: 150px;">
+            <div style="margin-left: 60px; margin-right: 100px;">
+                <p style="margin-left: 10px; padding-left: 50px;">GPT Assistant</p>
+                <textarea id="answerinput" style="margin-left: 40px; padding-right: 40px;" placeholder="Мен сіздің ЖИ көмекшіңіз болып табыламын. Қандай да бір сұрақ туындаса, маған жазсаңыз болады, әр дайым жауап беруге дайынмын)"></textarea>
+                <button id="submitanswerbtn" style="margin-left: 40px;" onclick="fetchGptAnswer()">Сұрақ қою</button>
+                <p id="answerresponse"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function fetchGptAnswer() {
+            const API_URL = "http://localhost:8000";
+            const lessonId = 1;
+            const content = document.getElementById("answerinput").value;
+            try {
+                const response = await fetch(`${API_URL}/lessons/${lessonId}/answer`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ content })
+                });
+                if (!response.ok) {
+                    throw new Error(`Failed to submit answer: ${response.status} ${response.statusText}`);
+                }
+                const data = await response.json();
+                document.getElementById("answerresponse").textContent = data.response;
+            } catch (error) {
+                console.error(error);
+                alert(`Error submitting answer: ${error.message}`);
+            }
+        }
+    </script>
+</body>
+</html>
