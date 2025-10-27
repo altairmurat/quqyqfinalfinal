@@ -137,6 +137,145 @@
                 result.style.color = 'red';
             }
         }
+
+        function checkTask2() {
+        const text = document.getElementById('task2-text').value.trim();
+        const wordCount = text.split(/\s+/).length;
+        const result = document.getElementById('result2');
+        if (wordCount >= 50) {
+            result.innerText = "Дұрыс! Сөз саны: " + wordCount;
+            result.style.color = 'green';
+        } else {
+            result.innerText = "Қателер бар. Кемінде 50 сөз жазыңыз. Қазір: " + wordCount;
+            result.style.color = 'red';
+        }
+    }
+
+    function generatePoster() {
+        const examples = document.getElementById('examples').value.trim();
+        const causes = document.getElementById('causes').value.trim();
+        document.getElementById('poster-examples').innerText = examples;
+        document.getElementById('poster-causes').innerText = causes;
+        document.getElementById('poster').style.display = 'block';
+    }
+
+    function checkTask22() {
+        const answers = ['в', 'б', 'б', 'б', 'б'];
+        let allCorrect = true;
+        for (let i = 1; i <= 5; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected && selected.value === answers[i-1]) {
+                selected.parentElement.classList.add('correct');
+                selected.parentElement.classList.remove('incorrect');
+            } else {
+                allCorrect = false;
+                if (selected) selected.parentElement.classList.add('incorrect');
+            }
+        }
+        const result = document.getElementById('result2');
+        if (allCorrect) {
+            result.innerText = "Барлығы дұрыс!";
+            result.style.color = 'green';
+        } else {
+            result.innerText = "Қателер бар. Қайта көріңіз.";
+            result.style.color = 'red';
+        }
+    }
+
+    function checkTask3() {
+        const answers = ['Бұрыс', 'Дұрыс', 'Бұрыс', 'Дұрыс', 'Дұрыс', 'Бұрыс', 'Дұрыс'];
+        let allCorrect = true;
+        for (let i = 1; i <= 7; i++) {
+            const selected = document.querySelector(`input[name="tf${i}"]:checked`);
+            if (selected && selected.value === answers[i-1]) {
+                selected.parentElement.classList.add('correct');
+                selected.parentElement.classList.remove('incorrect');
+            } else {
+                allCorrect = false;
+                if (selected) selected.parentElement.classList.add('incorrect');
+            }
+        }
+        const result = document.getElementById('result3');
+        if (allCorrect) {
+            result.innerText = "Барлығы дұрыс!";
+            result.style.color = 'green';
+        } else {
+            result.innerText = "Қателер бар. Қайта көріңіз.";
+            result.style.color = 'red';
+        }
+    }
+    function checkTask11() {
+        const answers = ['H', 'E', 'C', 'D', 'F', 'A', 'G', 'B']; // Example matching, adjust based on correct order
+        let allCorrect = true;
+        for (let i = 1; i <= 8; i++) {
+            const input = document.getElementById(`match${i}`);
+            if (input.value.trim().toUpperCase() === answers[i-1]) {
+                input.classList.add('correct');
+                input.classList.remove('incorrect');
+            } else {
+                input.classList.add('incorrect');
+                input.classList.remove('correct');
+                allCorrect = false;
+            }
+        }
+        const result = document.getElementById('result11');
+        if (allCorrect) {
+            result.innerText = "Барлығы дұрыс!";
+            result.style.color = 'green';
+        } else {
+            result.innerText = "Қателер бар. Қайта көріңіз.";
+            result.style.color = 'red';
+        }
+    }
+
+    function checkEssay() {
+        const text = document.getElementById('essay').value.trim();
+        const wordCount = text.split(/\s+/).length;
+        const result = document.getElementById('result22');
+        if (wordCount >= 50 && wordCount <= 70) {
+            result.innerText = "Дұрыс! Сөз саны: " + wordCount;
+            result.style.color = 'green';
+        } else {
+            result.innerText = "Қателер бар. 50-70 сөз аралығында жазыңыз. Қазір: " + wordCount;
+            result.style.color = 'red';
+        }
+    }
+
+    function checkTask111() {
+        const selected = document.querySelector('input[name="q1"]:checked');
+        const result = document.getElementById('result1');
+        if (selected && selected.value === 'Жоқ') {
+            result.innerText = "Дұрыс! Директор қосымша жұмысқа рұқсат бермеу арқылы еңбек құқығын бұзған.";
+            result.classList.add('correct');
+        } else {
+            result.innerText = "Қате. Қайта көріңіз.";
+            result.classList.add('incorrect');
+        }
+    }
+
+    function checkTask333() {
+        const selected = document.querySelector('input[name="q3"]:checked');
+        const result = document.getElementById('result3');
+        if (selected && selected.value === 'Жоқ') {
+            result.innerText = "Дұрыс! Жұмысқа алу кезінде жыныс кемсітуіне жол берілмейді.";
+            result.classList.add('correct');
+        } else {
+            result.innerText = "Қате. Қайта көріңіз.";
+            result.classList.add('incorrect');
+        }
+    }
+
+    function checkTask444() {
+        const selected = document.querySelector('input[name="q4"]:checked');
+        const result = document.getElementById('result4');
+        if (selected && selected.value === 'Жоқ') {
+            result.innerText = "Дұрыс! Мәжбүрлі еңбекке тыйым салынады.";
+            result.classList.add('correct');
+        } else {
+            result.innerText = "Қате. Қайта көріңіз.";
+            result.classList.add('incorrect');
+        }
+    }
     </script>
 </body>
 </html>
