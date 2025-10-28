@@ -33,7 +33,7 @@ header {
 /* Main container (organized grid) */
 .container,
 .container1 {
-    display: grid;
+    display: flex;
     grid-template-columns: 340px 1fr;
     gap: 28px;
     max-width: 1600px;
@@ -72,10 +72,6 @@ header {
     border-radius: 16px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
-
-/* Hide right pane until a material is chosen */
-.main-content { display: none; }
-.container.show-content .main-content { display: block; }
 
 /* Headings in content */
 .main-content h2,
@@ -306,3 +302,4 @@ th {
     #materials-list a { white-space: normal; }
     .citation { width: 95%; }
 }
+
