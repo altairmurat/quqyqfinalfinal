@@ -5,167 +5,175 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #e8f0ff, #cfdcff); /* Светло-синий градиент */
-    color: #1c2b4a; /* Тёмно-синий текст */
+    background-color: #f5f7f6; /* Light grayish-green background */
+    color: #2e3b35; /* Dark grayish-green text */
     line-height: 1.6;
 }
 
-/* Header */
 header {
-    background: linear-gradient(90deg, #2b6cb0, #4299e1); /* Синий градиент */
-    color: #ffffff;
-    padding: 25px;
+    background-color: #4a9c7e; /* Muted teal header */
+    color: #ffffff; /* White text for contrast */
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    border-bottom: 3px solid #1a4f8a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-    width: 55px;
+    width: 50px;
     height: auto;
     vertical-align: middle;
 }
 
-/* Main container */
-.container, .container1 {
+.container {
     display: flex;
     gap: 30px;
-    max-width: 1600px;
-    margin: 30px auto;
+    max-width: 1600px; /* Wider container as requested */
+    margin: 20px auto;
     padding: 30px;
-    background-color: #f0f5ff; /* Очень светлый голубой */
-    border-radius: 20px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    background-color: #e0e8e5; /* Soft mint green container */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
 
-/* Sidebar */
 .left-nav {
     width: 25%;
-    background-color: #e6efff; /* Голубой оттенок */
+    background-color: #e0e8e5; /* Soft mint green */
     padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Main content areas */
-.main-content, .main-content-courses, .main1-content1 {
+.main-content-courses {
     width: 75%;
-    background-color: #ffffff;
+    background-color: #e0e8e5; /* Soft mint green */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-left: 175px;
+    margin-right: 175px;
+}
+
+.main-content {
+    width: 75%;
+    background-color: #e0e8e5; /* Soft mint green */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.container1 {
+    display: flex;
+    gap: 30px;
+    max-width: 1600px; /* Wider container as requested */
+    margin: 20px auto;
     padding: 30px;
+    background-color: #e0e8e5; /* Soft mint green container */
     border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
 
-/* Headings */
+.main1-content1 {
+    width: 75%;
+    background-color: #e0e8e5; /* Soft mint green */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .left-nav h3, .main-content h2, .main-content h3 {
-    color: #2b6cb0; /* Основной синий */
+    color: #4a9c7e; /* Muted teal for headings */
     margin-bottom: 15px;
-    font-weight: 600;
 }
 
-/* Buttons */
 button {
-    background-color: #2b6cb0;
+    background-color: #4a9c7e; /* Muted teal buttons */
     color: #ffffff;
     border: none;
-    padding: 10px 22px;
-    border-radius: 8px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #1a4f8a;
-    transform: translateY(-2px);
+    background-color: #3d8a6e; /* Darker teal on hover */
 }
 
-/* Links */
 a {
-    color: #2b6cb0;
+    color: #4a9c7e; /* Muted teal links */
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #1a4f8a;
+    color: #3d8a6e; /* Darker teal on hover */
     text-decoration: underline;
 }
 
-/* Media */
 #media video, #media embed {
     width: 100%;
-    max-height: 420px;
+    max-height: 400px;
     border-radius: 10px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Transcript */
 #transcript {
     font-size: 1.1em;
     line-height: 1.6;
-    color: #1c2b4a;
+    color: #2e3b35;
     margin-bottom: 20px;
 }
 
 #transcript b {
-    color: #2b6cb0;
+    color: #4a9c7e; /* Muted teal for bold text */
     font-weight: 600;
 }
 
-/* Inputs */
 textarea, input {
-    background-color: #ffffff;
-    border: 1px solid #a0b9e8;
-    border-radius: 6px;
+    background-color: #ffffff; /* White input fields */
+    border: 1px solid #4a9c7e;
+    border-radius: 5px;
     padding: 10px;
     width: 100%;
-    margin-bottom: 12px;
-    transition: border-color 0.3s ease;
+    margin-bottom: 10px;
 }
 
-textarea:focus, input:focus {
-    border-color: #2b6cb0;
-    outline: none;
-    box-shadow: 0 0 5px rgba(66, 153, 225, 0.4);
-}
-
-/* Citation */
 .citation {
     text-align: center;
-    color: #1c2b4a;
+    color: #2e3b35;
     font-style: italic;
-    margin-top: 25px;
+    margin-top: 20px;
+    transform: translateX(0);
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
-/* Courses list */
+/* ... (keep all existing styles unchanged until #courses-list) ... */
+
 #courses-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: flex; /* Change from grid to flex for vertical stacking */
+    flex-direction: column; /* Ensure items stack vertically */
+    gap: 20px; /* Space between courses */
     margin: 20px 0;
 }
 
-/* Course cards */
+/* Ensure course-card adapts to vertical layout */
 .course-card {
-    background-color: #f5f9ff;
+    background-color: #e0e8e5;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px; /* Additional spacing for visual separation */
+    transition: transform 0.3s ease;
 }
 
 .course-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 20px rgba(66, 153, 225, 0.25);
+    transform: translateY(-5px);
 }
 
 .course-image {
@@ -174,92 +182,181 @@ textarea:focus, input:focus {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .course-card a {
-    color: #1c2b4a;
+    color: #2e3b35;
+    text-decoration: none;
     font-size: 1.2em;
-    font-weight: 500;
+    display: block;
 }
 
-/* Media Queries */
+/* Remove the media query grid adjustment since it's no longer a grid */
 @media (max-width: 768px) {
-    .container, .container1 {
+    .container {
         flex-direction: column;
         max-width: 100%;
-        padding: 20px;
+        padding: 15px;
+    }
+    .container1 {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 15px;
     }
     .left-nav, .main-content {
         width: 100%;
     }
     .citation {
-        width: 95%;
+        position: relative;
+        margin-top: 20px;
+        transform: translateX(0);
+        width: 90%;
     }
 }
 
-/* Other elements */
-h1 {
-    text-align: center;
-    font-size: 26px;
-    margin-bottom: 20px;
-    color: #2b6cb0;
-}
+/* ... (rest of the CSS remains unchanged) ... */
 
-h4 {
-    font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #1c2b4a;
-}
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        h4 {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            font-weight: bold;
+        }
+        ul, ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        .diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .diagram-box {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            min-width: 100px;
+        }
+        .diagram-arrow {
+            font-size: 24px;
+            margin: 0 10px;
+        }
+        .tree-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .tree-top {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .tree-branches {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .tree-branch {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0 20px;
+        }
+        .tree-line {
+            width: 2px;
+            height: 20px;
+            background-color: #333;
+            margin: 0 auto;
+        }
+        .horizontal-line {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+            height: 2px;
+            background-color: #333;
+            position: relative;
+            top: -10px;
+        }
 
-p {
-    margin-bottom: 15px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    background-color: #f8fbff;
-}
-
-th, td {
-    border: 1px solid #c3d7f5;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    font-weight: bold;
-    background-color: #e1ecff;
-    color: #1c2b4a;
-}
-
-/* Diagrams */
-.diagram-box, .tree-top, .tree-branch {
-    background-color: #2b6cb0;
-    color: #fff;
-    border-radius: 8px;
-}
-
-.tree-line, .horizontal-line {
-    background-color: #1c2b4a;
-}
-
-/* Venn Diagram */
-.left-circle {
-    background-color: #2b6cb0;
-}
-
-.right-circle {
-    background-color: #87bfff;
-}
-
-/* Feedback colors */
-.correct {
-    color: #007bff;
-}
-.incorrect {
-    color: #e63946;
-}
+        .task {
+            margin-bottom: 40px;
+        }
+        .kazakh {
+            margin-bottom: 20px;
+        }
+        .fill-blank {
+            border: none;
+            border-bottom: 1px dotted black;
+            width: 150px;
+            text-align: left;
+            font-size: 14px;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .venn-container {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            margin: 20px auto;
+        }
+        .circle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .left-circle {
+            left: 0;
+            background-color: #008000;
+            color: white;
+        }
+        .right-circle {
+            left: 150px;
+            background-color: #90ee90;
+            color: black;
+        }
+        button {
+            margin-top: 10px;
+        }
+        #result1 {
+            margin-top: 10px;
+        }
