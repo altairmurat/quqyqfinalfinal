@@ -1,3 +1,5 @@
+сделай цвет данного style.css на более синий и красивый дизайн
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 /* Reset and global styles */
@@ -53,7 +55,7 @@ header {
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-left: 205px;
+    margin-left: 175px;
     margin-right: 175px;
 }
 
@@ -360,4 +362,3 @@ textarea, input {
         #result1 {
             margin-top: 10px;
         }
-
