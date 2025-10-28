@@ -9,14 +9,14 @@
 }
 
 body {
-    background: linear-gradient(135deg, #e8f0ff, #cfdcff);
-    color: #1c2b4a;
+    background: linear-gradient(135deg, #e8f0ff, #cfdcff); /* Светло-синий градиент */
+    color: #1c2b4a; /* Тёмно-синий текст */
     line-height: 1.6;
 }
 
 /* Header */
 header {
-    background: linear-gradient(90deg, #2b6cb0, #4299e1);
+    background: linear-gradient(90deg, #2b6cb0, #4299e1); /* Синий градиент */
     color: #ffffff;
     padding: 25px;
     text-align: center;
@@ -30,89 +30,41 @@ header {
     vertical-align: middle;
 }
 
-/* Main container (organized grid) */
-.container,
-.container1 {
+/* Main container */
+.container, .container1 {
     display: flex;
-    grid-template-columns: 340px 1fr;
-    gap: 28px;
+    gap: 30px;
     max-width: 1600px;
     margin: 30px auto;
     padding: 30px;
-    background-color: #f0f5ff;
+    background-color: #f0f5ff; /* Очень светлый голубой */
     border-radius: 20px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* Sidebar (sticky card) */
+/* Sidebar */
 .left-nav {
-    position: sticky;
-    top: 24px;
-    align-self: start;
-    background-color: #ffffff;
-    border: 1px solid #e3eafc;
-    padding: 20px 18px;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-}
-
-.left-nav h3 {
-    color: #2b6cb0;
-    margin-bottom: 14px;
-    font-weight: 600;
+    width: 25%;
+    background-color: #e6efff; /* Голубой оттенок */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 /* Main content areas */
-.main-content,
-.main-content-courses,
-.main1-content1 {
+.main-content, .main-content-courses, .main1-content1 {
+    width: 75%;
     background-color: #ffffff;
-    border: 1px solid #e3eafc;
-    padding: 30px 24px;
-    border-radius: 16px;
+    padding: 30px;
+    border-radius: 15px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Headings in content */
-.main-content h2,
-.main-content h3 {
-    color: #2b6cb0;
+/* Headings */
+.left-nav h3, .main-content h2, .main-content h3 {
+    color: #2b6cb0; /* Основной синий */
     margin-bottom: 15px;
     font-weight: 600;
-}
-
-/* Materials list = neat tiles */
-#materials-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 14px;
-}
-
-#materials-list a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 12px;
-    background: #f5f9ff;
-    border: 1px solid #d9e6ff;
-    color: #1c2b4a;
-    text-decoration: none;
-    font-weight: 500;
-    line-height: 1.35;
-    transition: background .2s ease, border-color .2s ease,
-                transform .2s ease, box-shadow .2s ease;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-#materials-list a:hover {
-    background: #eaf2ff;
-    border-color: #bfd2ff;
-    transform: translateX(2px);
-    box-shadow: 0 10px 20px rgba(66, 153, 225, 0.25);
 }
 
 /* Buttons */
@@ -145,15 +97,12 @@ a:hover {
 }
 
 /* Media */
-#media video,
-#media embed {
+#media video, #media embed {
     width: 100%;
     max-height: 420px;
     border-radius: 10px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
-
-#media { margin-bottom: 14px; border-radius: 12px; overflow: hidden; }
 
 /* Transcript */
 #transcript {
@@ -234,6 +183,21 @@ textarea:focus, input:focus {
     font-weight: 500;
 }
 
+/* Media Queries */
+@media (max-width: 768px) {
+    .container, .container1 {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 20px;
+    }
+    .left-nav, .main-content {
+        width: 100%;
+    }
+    .citation {
+        width: 95%;
+    }
+}
+
 /* Other elements */
 h1 {
     text-align: center;
@@ -249,7 +213,9 @@ h4 {
     color: #1c2b4a;
 }
 
-p { margin-bottom: 15px; }
+p {
+    margin-bottom: 15px;
+}
 
 table {
     width: 100%;
@@ -277,29 +243,23 @@ th {
     border-radius: 8px;
 }
 
-.tree-line, .horizontal-line { background-color: #1c2b4a; }
-
-/* Venn Diagram */
-.left-circle { background-color: #2b6cb0; }
-.right-circle { background-color: #87bfff; }
-
-/* Feedback colors */
-.correct { color: #007bff; }
-.incorrect { color: #e63946; }
-
-/* Responsive */
-@media (max-width: 880px) {
-    .container, .container1 {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        max-width: 100%;
-        padding: 20px;
-    }
-    .left-nav, .main-content {
-        width: 100%;
-        position: static;
-    }
-    #materials-list a { white-space: normal; }
-    .citation { width: 95%; }
+.tree-line, .horizontal-line {
+    background-color: #1c2b4a;
 }
 
+/* Venn Diagram */
+.left-circle {
+    background-color: #2b6cb0;
+}
+
+.right-circle {
+    background-color: #87bfff;
+}
+
+/* Feedback colors */
+.correct {
+    color: #007bff;
+}
+.incorrect {
+    color: #e63946;
+}
